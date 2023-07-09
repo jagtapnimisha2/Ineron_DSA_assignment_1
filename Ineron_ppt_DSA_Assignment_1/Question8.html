@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function findErrorNums(nums) {
+  const n = nums.length;
+  const count = new Array(n + 1).fill(0);
+  let duplicate, missing;
+
+  for (const num of nums) {
+    count[num]++;
+  }
+
+  for (let i = 1; i <= n; i++) {
+    if (count[i] === 2) {
+      duplicate = i;
+    } else if (count[i] === 0) {
+      missing = i;
+    }
+  }
+
+  return [duplicate, missing];
+}
+const nums = [1, 2, 2, 4];
+const result = findErrorNums(nums);
+document.write("The ans is a "+result);
+
+    </script>
+</body>
+</html>
